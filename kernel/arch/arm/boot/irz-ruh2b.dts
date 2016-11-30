@@ -166,13 +166,13 @@
 
 		sim1 {
 			label = "SIM1";
-			gpios = <&pioD 19 GPIO_ACTIVE_HIGH>;
+			gpios = <&pioD 23 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "none";
 		};
 
 		sim2 {
 			label = "SIM2";
-			gpios = <&pioD 23 GPIO_ACTIVE_HIGH>;
+			gpios = <&pioD 19 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "none";
 		};
 
@@ -197,7 +197,7 @@
 	gpios {
 		compatible = "gpio-export";
 		simsel {
-		    gpios = <&pioD 16 GPIO_ACTIVE_LOW>;
+		    gpios = <&pioD 16 0>;
 		    gpio-export,name  = "SIM_SELECT";
 		    gpio-export,output = <0>;
 		};
@@ -222,7 +222,7 @@
 		    gpio-export,output = <1>;
 		};
 		GSM_POWER {
-		    gpios = <&pioC 12 GPIO_ACTIVE_LOW>;
+		    gpios = <&pioC 12 0>;
 		    gpio-export,name  = "GSM_POWER";
 		    gpio-export,output = <0>;
 		};
