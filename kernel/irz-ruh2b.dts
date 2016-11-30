@@ -124,13 +124,13 @@
 			};
 			kernel@20000 {
 				label = "kernel";
-				reg = <0x20000 0x160000>;
+				reg = <0x20000 0x250000>;
 			};
-			rwfs@170000  {
+			rwfs@270000  {
 				label = "rwfs";
-				reg = <0x180000 0x180000>;
+				reg = <0x270000 0x90000>;
 			};
-			root@2f0000  {
+			root@300000  {
 				label = "root";
 				reg = <0x300000 0x500000>;
 			};
