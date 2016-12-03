@@ -84,7 +84,7 @@
 				    reg = <0>;
 				    bus-width = <4>;
 				    cd-gpios = <&pioA 24 0>;
-				    cd-inverted;
+				    /* cd-inverted; */
 				};
 			};
 		};
