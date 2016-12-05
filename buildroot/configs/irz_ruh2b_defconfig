@@ -2669,126 +2669,9 @@ BR2_TARGET_ROOTFS_SQUASHFS4_XZ=y
 # BR2_PACKAGE_HOST_VBOOT_UTILS is not set
 # BR2_PACKAGE_HOST_XORRISO is not set
 # BR2_PACKAGE_HOST_ZIP is not set
-BR2_LEGACY=y
-
-#
-# Legacy detected: check the content of the menu below
-#
 
 #
 # Legacy config options
-#
-
-#
-# ----------------------------------------------------
-#
-
-#
-# Your old configuration uses legacy options that no  
-#
-
-#
-# longer exist in buildroot, as indicated in the menu 
-#
-
-#
-# below. As long as these options stay selected, or in
-#
-
-#
-# case of string options are non-empty, the build     
-#
-
-#
-# will fail.                                          
-#
-
-#
-# *                                                   
-#
-
-#
-# Where possible, an automatic conversion from old to 
-#
-
-#
-# new symbols has been performed. Before making any   
-#
-
-#
-# change in this legacy menu, make sure to exit the   
-#
-
-#
-# configuration editor a first time and save the      
-#
-
-#
-# configuration. Otherwise, the automatic conversion  
-#
-
-#
-# of symbols will be lost.                            
-#
-
-#
-# *                                                   
-#
-
-#
-# After this initial save, reopen the configuration   
-#
-
-#
-# editor, inspect the options selected below, read    
-#
-
-#
-# their help texts, and verify/update the new         
-#
-
-#
-# configuration in the corresponding configuration    
-#
-
-#
-# menus. When everything is ok, you can disable the   
-#
-
-#
-# legacy options in the menu below. Once you have     
-#
-
-#
-# disabled all legacy options, this text will         
-#
-
-#
-# disappear and you will be able to start the build.  
-#
-
-#
-# *                                                   
-#
-
-#
-# Note: at some point in the future, the oldest legacy
-#
-
-#
-# options will be removed, and configuration files    
-#
-
-#
-# that still have those options set, will fail to     
-#
-
-#
-# build, or run, in unpredictable ways.               
-#
-
-#
-# ----------------------------------------------------
 #
 
 #
@@ -3000,7 +2883,7 @@ BR2_LEGACY=y
 # BR2_GDB_VERSION_7_5 is not set
 # BR2_BUSYBOX_VERSION_1_19_X is not set
 # BR2_BUSYBOX_VERSION_1_20_X is not set
-BR2_BUSYBOX_VERSION_1_21_X=y
+# BR2_BUSYBOX_VERSION_1_21_X is not set
 # BR2_PACKAGE_LIBV4L_DECODE_TM6000 is not set
 # BR2_PACKAGE_LIBV4L_IR_KEYTABLE is not set
 # BR2_PACKAGE_LIBV4L_V4L2_COMPLIANCE is not set
@@ -3067,7 +2950,7 @@ BR2_LINUX_KERNEL_CUSTOM_GIT_VERSION=""
 # Legacy options removed in 2013.08
 #
 # BR2_ARM_OABI is not set
-BR2_PACKAGE_DOSFSTOOLS_DOSFSCK=y
+# BR2_PACKAGE_DOSFSTOOLS_DOSFSCK is not set
 # BR2_PACKAGE_DOSFSTOOLS_DOSFSLABEL is not set
 # BR2_PACKAGE_DOSFSTOOLS_MKDOSFS is not set
 # BR2_ELF2FLT is not set
