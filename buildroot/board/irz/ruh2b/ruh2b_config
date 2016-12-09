@@ -383,7 +383,7 @@ CONFIG_ARM_APPENDED_DTB=y
 CONFIG_ARM_ATAG_DTB_COMPAT=y
 CONFIG_ARM_ATAG_DTB_COMPAT_CMDLINE_FROM_BOOTLOADER=y
 # CONFIG_ARM_ATAG_DTB_COMPAT_CMDLINE_EXTEND is not set
-CONFIG_CMDLINE="root=/dev/mtdblock7 ro console=ttyS0,115200 mem=32M mtdparts=physmap-flash.0:16K(boot),32K(settings),8K(hwinfo),8K(nv),64K(u-boot),2368K(kernel),576K(rwfs),5120K(rootfs)"
+CONFIG_CMDLINE="root=/dev/mtdblock7 ro console=ttyS0,115200 mem=32M mtdparts=physmap-flash.0:16K(boot),32K(settings),8K(hwinfo),8K(nv),64K(u-boot),1728K(kernel),640K(rwfs),5696K(rootfs)"
 CONFIG_CMDLINE_FROM_BOOTLOADER=y
 # CONFIG_CMDLINE_EXTEND is not set
 # CONFIG_CMDLINE_FORCE is not set
