@@ -1,0 +1,55 @@
+diff -ur orig/arch/arm/boot/dts/irz-ruh2b.dts output/build/linux-custom/arch/arm/boot/dts/irz-ruh2b.dts
+--- orig/arch/arm/boot/dts/irz-ruh2b.dts	2016-11-14 13:57:01.000000000 +0000
++++ output/build/linux-custom/arch/arm/boot/dts/irz-ruh2b.dts	2017-02-03 08:39:51.096175675 +0000
+@@ -84,7 +84,7 @@
+ 				    reg = <0>;
+ 				    bus-width = <4>;
+ 				    cd-gpios = <&pioA 24 0>;
+-				    cd-inverted;
++				    /* cd-inverted; */
+ 				};
+ 			};
+ 		};
+@@ -124,13 +124,13 @@
+ 			};
+ 			kernel@20000 {
+ 				label = "kernel";
+-				reg = <0x20000 0x160000>;
++				reg = <0x20000 0x250000>;
+ 			};
+-			rwfs@170000  {
++			rwfs@270000  {
+ 				label = "rwfs";
+-				reg = <0x180000 0x180000>;
++				reg = <0x270000 0x90000>;
+ 			};
+-			root@2f0000  {
++			root@300000  {
+ 				label = "root";
+ 				reg = <0x300000 0x500000>;
+ 			};
+@@ -166,13 +166,13 @@
+ 
+ 		sim1 {
+ 			label = "SIM1";
+-			gpios = <&pioD 19 GPIO_ACTIVE_HIGH>;
++			gpios = <&pioD 23 GPIO_ACTIVE_HIGH>;
+ 			linux,default-trigger = "none";
+ 		};
+ 
+ 		sim2 {
+ 			label = "SIM2";
+-			gpios = <&pioD 23 GPIO_ACTIVE_HIGH>;
++			gpios = <&pioD 19 GPIO_ACTIVE_HIGH>;
+ 			linux,default-trigger = "none";
+ 		};
+ 
+@@ -197,7 +197,7 @@
+ 	gpios {
+ 		compatible = "gpio-export";
+ 		simsel {
+-		    gpios = <&pioD 16 GPIO_ACTIVE_LOW>;
++		    gpios = <&pioD 16 0>;
+ 		    gpio-export,name  = "SIM_SELECT";
+ 		    gpio-export,output = <0>;
+ 		};
