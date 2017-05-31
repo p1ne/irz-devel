@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/micropython
 # -*- coding: utf8 -*-
 
 import urllib, sys

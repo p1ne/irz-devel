@@ -23,8 +23,7 @@ DHCP_CONF_OPTS = \
 	--with-cli-pid-file=/var/run/dhclient.pid \
 	--with-cli6-pid-file=/var/run/dhclient6.pid \
 	--with-relay-pid-file=/var/run/dhcrelay.pid \
-	--with-relay6-pid-file=/var/run/dhcrelay6.pid \
-	--arch $(ARCH)
+	--with-relay6-pid-file=/var/run/dhcrelay6.pid
 
 # The source for the bind libraries used by dhcp are embedded in the dhcp source
 # as a tar-ball. Extract the bind source to allow any patches to be applied
