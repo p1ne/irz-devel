@@ -36,7 +36,7 @@ config_longcheer() {
         fi
         [ -z "$band" ] && band="896,1272,131072"
         [ -z "$mode" ] && mode=2
-        tty-lock $DEV 
+        tty-lock $DEV
         talk -t $DEV -c "+mododr=$mode"
         logger -t ppp -p daemon.info "CMD:+mododr=$mode RES: $?"
         talk -t $DEV -c "+bndprf=$band"
@@ -185,6 +185,17 @@ start() {
                 modem="wetelecom"
                 DEV="/dev/`ls -1d /sys/bus/usb/devices/1-1/1-1\:1.0/tty* |sed -e 's/^.*tty/tty/'`"
                 ;;
+            12d1)
+                modem="huawei"
+                case "$P" in
+                    1573|1c25)
+                      DEV="/dev/`ls -1d /sys/bus/usb/devices/1-1/1-1\:2.2/tty* |sed -e 's/^.*tty/tty/'`"
+                      ;;
+                    *)
+                      DEV="/dev/`ls -1d /sys/bus/usb/devices/1-1/1-1\:1.0/tty* |sed -e 's/^.*tty/tty/'`"
+                      ;;
+                esac
+                ;;
             *)
                 modem="huawei"
                 DEV="/dev/`ls -1d /sys/bus/usb/devices/1-1/1-1\:1.0/tty* |sed -e 's/^.*tty/tty/'`"
@@ -193,11 +204,11 @@ start() {
         if [ -e "$DEV" ]; then
             logger -t ppp -p daemon.info "Device: $modem $DEV ($V:$P)"
         else
-            logger -t ppp -p daemon.info "Cannot detect tty number!"
+            logger -t ppp -p daemon.info "Cannot detect tty number! ($V:$P)"
             _exit 1
         fi
     else
-        logger -t ppp -p daemon.info "Cannot detect modem!"
+        logger -t ppp -p daemon.info "Cannot detect modem! ($V:$P)"
         _exit 1
     fi
     ## Configure modem
@@ -205,7 +216,7 @@ start() {
         longcheer)  config_longcheer ;;
         huawei)     config_huawei ;;
         *)          logger -t ppp -p daemon.info "No modem configuration performed" ;;
-    esac  
+    esac
 
     ## check selected sim
     err=`sim_check`
@@ -244,7 +255,7 @@ start() {
                 writesecret ppp0 pap $PPP_USERNAME $PPP_PASSWORD
                 writesecret ppp0 chap $PPP_USERNAME $PPP_PASSWORD
                 ;;
-        esac 
+        esac
         chmod 600 /etc/ppp/pap-secrets
         chmod 600 /etc/ppp/chap-secrets
         [ -z "$PPP_SOFTRETR" ] && PPP_SOFTRETR=3
@@ -263,7 +274,7 @@ start() {
         [ "$PPP_USEDNS" = "usenonedns" ] && ( echo "" > /var/etc/resolv.conf.ppp; PEERDNS="" )
 
 if [ "$MODEL" != "RCA" ]; then
-        ## Use autodetected APN if none 
+        ## Use autodetected APN if none
         if [ -z "$PPP_APN" ]; then
             if [ -e /tmp/opnumber  ]; then
                 . /tmp/opnumber
@@ -374,4 +385,3 @@ else
         ;;
     esac
 fi
-

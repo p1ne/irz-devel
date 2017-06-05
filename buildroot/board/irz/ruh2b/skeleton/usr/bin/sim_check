@@ -30,7 +30,8 @@ if [ "$res" = "3" ]; then
                         /etc/init.d/connection message "SIM fail limit reached ($PPP_REBOOT_COUNT), rebooting!"
                         reboot
                     else
-                        logger -t sim_check "SIM fail limit reached ($PPP_REBOOT_COUNT), but reboot is disabled by FW upgrade"
+                        MSG=`cat /tmp/noreboot`
+                        logger -t sim_check "SIM fail limit reached ($PPP_REBOOT_COUNT), but reboot is disabled ($MSG)"
                     fi
                 fi
                 echo $count > /tmp/ppp_reboot
@@ -135,4 +136,3 @@ csq=`gsminfo |grep -i quality`
 logger -t sim_check -p daemon.info "$csq"
 logger -t sim_check -p daemon.info "SIM card $simnum not registred!"
 exit 1
-

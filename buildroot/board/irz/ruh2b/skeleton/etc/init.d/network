@@ -25,14 +25,15 @@ if [ "$ETH_MII_FORCE" = "1" ] && [ -n "$ETH_MII_MEDIA" ] && [ -n "$ETH_MII_DUPLE
 else
     mii-diag -A 100baseTX-FD eth0 2>/dev/null 1>/dev/null
 fi
-## Loopback 
+## Loopback
 ifconfig lo 127.0.0.1 netmask 255.0.0.0
 
 netservices stop 1>/dev/null 2>/dev/null
 
 ## Primary IP
 ifconfig eth0 down 2>/dev/null
-ifconfig eth0 $ETH_IPADDR netmask $ETH_NETMASK hw ether $ETH_MAC up 2>/dev/null 1>/dev/null
+ifconfig eth0 hw ether $ETH_MAC 2>/dev/null 1>/dev/null
+ifconfig eth0 $ETH_IPADDR netmask $ETH_NETMASK up 2>/dev/null 1>/dev/null
 echo "Network: $ETH_IPADDR/$ETH_NETMASK/$ETH_MAC"
 
 ## Secondary IP
@@ -154,7 +155,7 @@ if [ ! -z "$WIFI_MODE" ] && [ "$WIFI_MODE" != "DISABLED" ] ; then
         echo -n AP > /var/tmp/wifi-mode
 
         echo "Wi-Fi AP: $WIFI_AP_SSID"
-      
+
     fi
 fi
 
@@ -166,7 +167,7 @@ fi
 netservices start
 
 }
-    
+
 stop() {
     echo -n "Stopping network..."
     /etc/init.d/fw stop
@@ -189,7 +190,7 @@ stop() {
 restart() {
     stop
     start
-}   
+}
 
 case "$1" in
   start)
@@ -207,4 +208,3 @@ case "$1" in
 esac
 
 exit $?
-
