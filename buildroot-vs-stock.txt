@@ -1,0 +1,31 @@
+Files difference between buildroot-generated fw vs. stock
+
+==== absent in buildroot
+
+/bin/bash
+/bin/ip
+/sbin/dosfslabel
+/sbin/fdisk
+/sbin/mkdosfs
+/sbin/mkfs.vfat
+/usr/bin/flex++ => flex
+/usr/bin/pcap_config
+/usr/bin/gdbserver
+/usr/lib/libnl (200.22 instead of 201)
+/usr/lib/libnl
+
+/usr/sbin/dhclient
+/usr/sbin/dhclient-script
+/usr/sbin/dhcpd
+
+/usr/sbin/ifrename
+/usr/sbin/tcpdump
+
+==== present in buildroot (should be deleted)
+
+/etc/ppp/radius/
+/etc/ssl/openssl.cnf
+/etc/hostapd.conf
+/etc/inadyn.conf
+/etc/ntp.conf
+/etc/wpa_supplicant.conf
